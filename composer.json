@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "shopware/core": "~6.7.0",
+        "smi2/phpclickhouse": "^1.6"
     },
     "extra": {
         "shopware-plugin-class": "StockOutAnalyzer\\StockOutAnalyzer",

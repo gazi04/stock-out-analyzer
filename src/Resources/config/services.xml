@@ -5,6 +5,25 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+        <service id="StockOutAnalyzer\Core\Framework\ClickHouse\ClickHouseFactory" />
+
+        <service id="ClickHouseDB\Client" class="ClickHouseDB\Client">
+            <factory service="StockOutAnalyzer\Core\Framework\ClickHouse\ClickHouseFactory" method="createClient"/>
+            <argument>%env(CLICKHOUSE_HOST)%</argument>
+            <argument>%env(CLICKHOUSE_PORT)%</argument>
+            <argument>%env(CLICKHOUSE_USER)%</argument>
+            <argument>%env(CLICKHOUSE_PASSWORD)%</argument>
+            <argument>%env(CLICKHOUSE_DB)%</argument>
+        </service>
+
+        <!-- COMMANDS -->
+        <service id="StockOutAnalyzer\Command\TestClickHouseConnectionCommand">
+            <argument type="service" id="ClickHouseDB\Client"/>
+            <tag name="console.command" command="clickhouse:test-connection"/>
+        </service>
+        <!-- /COMMANDS -->
+
+        <!-- ENTITY DEFINITIONS -->
         <service id="StockOutAnalyzer\Core\Content\StockPrediction\StockPredictionDefinition">
             <tag name="shopware.entity.definition" entity="stock_prediction" />
         </service>
@@ -16,5 +35,7 @@
         <service id="StockOutAnalyzer\Core\Content\StockModelLog\StockModelLogDefinition">
             <tag name="shopware.entity.definition" entity="stock_model_log" />
         </service>
+        <!-- /ENTITY DEFINITIONS -->
+
     </services>
 </container>
