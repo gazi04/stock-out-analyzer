@@ -5,5 +5,16 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+        <service id="StockOutAnalyzer\Core\Content\StockPrediction\StockPredictionDefinition">
+            <tag name="shopware.entity.definition" entity="stock_prediction" />
+        </service>
+
+        <service id="StockOutAnalyzer\Core\Content\ClickhouseSyncState\ClickhouseSyncStateDefinition">
+            <tag name="shopware.entity.definition" entity="clickhouse_sync_state" />
+        </service>
+
+        <service id="StockOutAnalyzer\Core\Content\StockModelLog\StockModelLogDefinition">
+            <tag name="shopware.entity.definition" entity="stock_model_log" />
+        </service>
     </services>
 </container>
