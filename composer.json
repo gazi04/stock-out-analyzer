@@ -1,0 +1,32 @@
+{
+    "name": "stock-out-analyzer/stock-out-analyzer",
+    "description": "stock-out-analyzer/stock-out-analyzer",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "~6.7.0",
+    },
+    "extra": {
+        "shopware-plugin-class": "StockOutAnalyzer\\StockOutAnalyzer",
+        "label": {
+            "de-DE": "Bestandsanalyse",
+            "en-GB": "Stock Out Analyzer"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "StockOutAnalyzer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "StockOutAnalyzer\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "symfony/runtime": true
+        }
+    }
+}
