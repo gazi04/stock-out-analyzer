@@ -17,6 +17,10 @@
         </service>
 
         <!-- COMMANDS -->
+        <service id="StockOutAnalyzer\Command\TestRubixMLCommand">
+            <tag name="console.command" command="clickhouse:test-rubix-ml"/>
+        </service>
+
         <service id="StockOutAnalyzer\Command\TestClickHouseConnectionCommand">
             <argument type="service" id="ClickHouseDB\Client"/>
             <tag name="console.command" command="clickhouse:test-connection"/>
