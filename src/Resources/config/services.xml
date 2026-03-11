@@ -43,5 +43,15 @@
         </service>
         <!-- /ENTITY DEFINITIONS -->
 
+        <!-- MESSAGE HANDLERS -->
+        <service id="StockOutAnalyzer\MessageHandler\ClickHouseIngestHandler">
+            <argument type="service" id="StockOutAnalyzer\Command\BulkIngestSalesCommand"/>
+            <tag name="messenger.message_handler" />
+        </service>
+        <!-- /MESSAGE HANDLERS -->
+
+        <!-- SYMFONY SCHEDULERS -->
+        <service id="StockOutAnalyzer\Scheduler\DailyIngestSchedule" autoconfigure="true" />
+        <!-- /SYMFONY SCHEDULERS -->
     </services>
 </container>
