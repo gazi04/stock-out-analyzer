@@ -73,6 +73,7 @@ class BulkIngestSalesCommand extends Command
         $progressBar->start();
 
         $offset = 0;
+        $newestTimestamp = $lastSync;
         
         while ($offset < $totalRows) {
             // Raw DBAL Query for maximum performance
