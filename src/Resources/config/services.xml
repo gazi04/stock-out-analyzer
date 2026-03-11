@@ -21,6 +21,12 @@
             <argument type="service" id="ClickHouseDB\Client"/>
             <tag name="console.command" command="clickhouse:test-connection"/>
         </service>
+
+        <service id="StockOutAnalyzer\Command\BulkIngestSalesCommand">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <argument type="service" id="ClickHouseDB\Client"/>
+            <tag name="console.command" command="clickhouse:bulk-ingest"/>
+        </service>
         <!-- /COMMANDS -->
 
         <!-- ENTITY DEFINITIONS -->
